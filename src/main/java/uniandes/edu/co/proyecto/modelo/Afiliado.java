@@ -2,6 +2,8 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,6 +29,7 @@ public class Afiliado {
 
     @Column(name = "FECHA_NACIMIENTO")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaNac;
     
     @Column(name = "CIUDAD")
@@ -36,7 +39,7 @@ public class Afiliado {
     private String direccion;
 
     @Column(name = "TELEFONO")
-    private Integer telefono;
+    private String telefono;
 
     @ManyToOne
     @JoinColumn(name = "EPS", referencedColumnName = "NIT")
@@ -44,7 +47,7 @@ public class Afiliado {
 
 
     public Afiliado(String tipoDoc, Integer numDoc, String nombre, Date fechaNac, String ciudad, String direccion, 
-                            Integer telefono, Eps epsAsociada){
+                            String telefono, Eps epsAsociada){
         //this.pk = new AfiliadoPK(tipoDoc, numDoc);
         this.tipoDoc = tipoDoc;
         this.numDoc = numDoc;
@@ -116,11 +119,11 @@ public class Afiliado {
         this.direccion = direccion;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

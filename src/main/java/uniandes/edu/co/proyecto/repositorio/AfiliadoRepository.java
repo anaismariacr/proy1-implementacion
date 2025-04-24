@@ -32,7 +32,7 @@ public interface AfiliadoRepository extends JpaRepository<Afiliado, Integer> {
                             @Param("fechaNac") Date fechaNac, 
                             @Param("ciudad") String ciudad, 
                             @Param("direccion") String direccion, 
-                            @Param("telefono") Integer telefono, 
+                            @Param("telefono") String telefono, 
                             @Param("nitEps") String nitEps);
 
     @Modifying
@@ -46,7 +46,7 @@ public interface AfiliadoRepository extends JpaRepository<Afiliado, Integer> {
                             @Param("fechaNac") Date fechaNac, 
                             @Param("ciudad") String ciudad, 
                             @Param("direccion") String direccion, 
-                            @Param("telefono") Integer telefono, 
+                            @Param("telefono") String telefono, 
                             @Param("nitEps") String nitEps);
 
     @Modifying
