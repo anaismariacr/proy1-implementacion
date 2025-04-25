@@ -28,12 +28,12 @@ public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, In
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO ORDENESSERVICIO (NUMERO, FECHA, ESTADO, AFILIADO_RECEPTOR_NUM, MEDICO_REMITENTE, SERVICIO_SALUD) VALUES (proyecto_sequence.nextval, :fecha, :estado, :numAfiliadoReceptor, :medicoRemitente, :servicioNombre)", nativeQuery = true)
-    void insertarOrden(@Param("fecha") Date fecha, @Param("estado") String estado, @Param("numAfiliadoReceptor") Afiliado numAfiliadoReceptor, @Param("medicoRemitente") Medico medicoRemitente, @Param("servicioNombre") ServicioSalud servicioNombre);
+    void insertarOrden(@Param("fecha") Date fecha, @Param("estado") String estado, @Param("numAfiliadoReceptor") Integer numAfiliadoReceptor, @Param("medicoRemitente") String medicoRemitente, @Param("servicioNombre") String servicioNombre);
     
     @Modifying
     @Transactional
     @Query(value = "UPDATE ORDENESSERVICIO SET FECHA = :fecha, ESTADO = :estado, AFILIADO_RECEPTOR_NUM = :numAfiliadoReceptor, MEDICO_REMITENTE = :medicoRemitente, SERVICIO_SALUD = :servicioNombre WHERE NUMERO = :numero", nativeQuery = true)
-    void actualizarOrden(@Param("numero") Integer numero, @Param("fecha") Date fecha, @Param("estado") String estado, @Param("numAfiliadoReceptor") Afiliado numAfiliadoReceptor, @Param("medicoRemitente") Medico medicoRemitente, @Param("servicioNombre") ServicioSalud servicioNombre);
+    void actualizarOrden(@Param("numero") Integer numero, @Param("fecha") Date fecha, @Param("estado") String estado, @Param("numAfiliadoReceptor") Integer numAfiliadoReceptor, @Param("medicoRemitente") String medicoRemitente, @Param("servicioNombre") String servicioNombre);
   
     @Modifying
     @Transactional

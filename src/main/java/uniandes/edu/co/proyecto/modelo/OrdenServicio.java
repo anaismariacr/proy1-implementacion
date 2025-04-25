@@ -2,6 +2,8 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -34,6 +36,7 @@ public class OrdenServicio {
 
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 
     @Column(name = "ESTADO")
@@ -125,6 +128,18 @@ public class OrdenServicio {
 
     public void setServicioNombre(ServicioSalud servicioNombre) {
         this.servicioNombre = servicioNombre;
+    }
+
+    public Integer getNumDoc(Afiliado numAfiliadoReceptor){
+        return numAfiliadoReceptor.getNumDoc();
+    }
+
+    public String getRegistroMedico(Medico medicoRemitente){
+        return medicoRemitente.getRegistroMedico();
+    }
+
+    public String getNombreServicio(ServicioSalud servicioNombre){
+        return servicioNombre.getNombre();
     }
     
 }

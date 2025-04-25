@@ -32,7 +32,7 @@ public class OrdenServicioController {
 
     @PostMapping("/ordenes/new/save")
     public String ordenGuardar(@ModelAttribute OrdenServicio orden) {
-        ordenRepo.insertarOrden(orden.getFecha(), orden.getEstado().toString(), orden.getNumAfiliadoReceptor(), orden.getMedicoRemitente(), orden.getServicioNombre());
+        ordenRepo.insertarOrden(orden.getFecha(), orden.getEstado().toString(), orden.getNumAfiliadoReceptor().getNumDoc(), orden.getMedicoRemitente().getRegistroMedico(), orden.getServicioNombre().getNombre());
         return "redirect:/ordenes";
     }
 
@@ -51,7 +51,7 @@ public class OrdenServicioController {
     @PostMapping("/ordenes/{numero}/edit/save")
     public String epsEditarGuardar(@PathVariable("nit") Integer numero, @ModelAttribute OrdenServicio orden) {
         ordenRepo.actualizarOrden(numero, orden.getFecha(), orden.getEstado().toString(),
-                                    orden.getNumAfiliadoReceptor(), orden.getMedicoRemitente(), orden.getServicioNombre());
+                                    orden.getNumDoc(orden.getNumAfiliadoReceptor()), orden.getRegistroMedico(orden.getMedicoRemitente()), orden.getNombreServicio(orden.getServicioNombre()));
         return "redirect:/ordenes";
     }
 
