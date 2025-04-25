@@ -1,6 +1,7 @@
 package uniandes.edu.co.proyecto.repositorio;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +19,12 @@ public interface ServicioSaludRepository extends JpaRepository<ServicioSalud, St
 
     @Query(value = "SELECT * FROM SERVICIOSSALUD WHERE NOMBRE = :nombre", nativeQuery = true)
     Optional<ServicioSalud> darServicioSalud(@Param("nombre") String nombre);
+
+    //RFC PROBAR
+    @Query("SELECT s.nombre, COUNT(c) " +
+           "FROM ServicioSalud s LEFT JOIN Cita c ON s.nombre = c.numOrden.servicioNombre.nombre " +
+           "GROUP BY s.nombre")
+    List<Object[]> findIndiceUsoServicios();
 
     @Modifying
     @Transactional

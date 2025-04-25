@@ -2,7 +2,9 @@ package uniandes.edu.co.proyecto.repositorio;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -23,6 +25,13 @@ public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, In
 
     @Query(value = "SELECT * FROM ORDENESSERVICIO WHERE NUMERO = :numero", nativeQuery = true)
     OrdenServicio darOrden(@Param("numero") Integer numero);
+
+    // RFC PROBAR
+    @Query("SELECT os.servicioNombre.nombre, COUNT(os) as total " +
+           "FROM OrdenServicio os " +
+           "GROUP BY os.servicioNombre.nombre " +
+           "ORDER BY total DESC")
+    List<Object[]> findTop20ServiciosMasSolicitados(Pageable pageable);
 
     //figure out como importar el enum de estado 
     @Modifying
