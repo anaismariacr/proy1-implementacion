@@ -47,8 +47,8 @@ public class Medico {
         this.especialidad = especialidad;
     }
 
-    public Ips getNitIps() {
-        return nitIps;
+    public String getNitIps() {
+        return nitIps.getNit();
     }
 
     public void setNitIps(Ips nitIps) {
