@@ -2,6 +2,9 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.sql.Time;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,10 +27,11 @@ public class Cita {
 
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
 
     @Column(name = "HORA")
-    private Time hora;
+    private String hora;
 
     @ManyToOne
     @JoinColumn(name = "ATENDIDA_EN", referencedColumnName = "NIT")
@@ -44,7 +48,7 @@ public class Cita {
     @JoinColumn(name = "ORDENSERVICIO", referencedColumnName = "NUMERO")
     private OrdenServicio numOrden;
 
-    public Cita(Date fecha, Time hora, Ips ipsNit, String tipoDocAfiliado, Afiliado numDocAfiliado, OrdenServicio numOrden) {
+    public Cita(Date fecha, String hora, Ips ipsNit, String tipoDocAfiliado, Afiliado numDocAfiliado, OrdenServicio numOrden) {
         this.fecha = fecha;
         this.hora = hora;
         this.ipsNit = ipsNit;
@@ -73,11 +77,11 @@ public class Cita {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

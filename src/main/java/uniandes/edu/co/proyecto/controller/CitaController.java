@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.sql.Time;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +35,11 @@ public class CitaController {
     @PostMapping("/citas/new/save")
     public String citaGuardar(@ModelAttribute Cita cita) {
     java.sql.Date sqlDate = new java.sql.Date(cita.getFecha().getTime());
+    Time hora = Time.valueOf(cita.getHora() + ":00");
 
     citaRepository.insertarCita(
         sqlDate, 
-        cita.getHora(), 
+        hora, 
         cita.getIpsNit().getNit(), 
         cita.getNumDocAfiliado().getNumDoc(),
         cita.getNumOrden().getNumero()
@@ -60,8 +62,9 @@ public class CitaController {
     @PostMapping("/citas/{ID}/edit/save")
     public String citaEditarGuardar(@PathVariable("ID") int id, @ModelAttribute Cita cita) {
         java.sql.Date sqlDate = new java.sql.Date(cita.getFecha().getTime());
+        Time hora = Time.valueOf(cita.getHora() + ":00");
 
-        citaRepository.actualizarCita(id, sqlDate, cita.getHora(), cita.getIpsNit().getNit(), cita.getNumOrden().getNumero());
+        citaRepository.actualizarCita(id, sqlDate, hora, cita.getIpsNit().getNit(), cita.getNumOrden().getNumero());
         
         return "redirect:/citas"; 
     }
