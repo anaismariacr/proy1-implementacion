@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "87b342e7-b740-4af6-85b6-b9da5d31fc16",
+		"name": "RFC1 - consultar agenda",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/41576067-87b342e7-b740-4af6-85b6-b9da5d31fc16?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/citas/disponibilidad/{{nombreServicio}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"citas",
+						"disponibilidad",
+						"{{nombreServicio}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/citas/disponibilidad/{{nombreServicio}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"citas",
+								"disponibilidad",
+								"{{nombreServicio}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 02:35:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "redirect:/citas"
+				}
+			]
+		}
+	]
+}

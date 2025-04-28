@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "82b685b2-0b8e-438e-9984-a87b30a59b5e",
+		"name": "RF9 - agendar servicio transaccional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/41576067-82b685b2-0b8e-438e-9984-a87b30a59b5e?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fecha",
+							"value": "2024-10-10",
+							"type": "text"
+						},
+						{
+							"key": "hora",
+							"value": "14:30:00",
+							"type": "text"
+						},
+						{
+							"key": "ipsNit",
+							"value": "900.123.456-7",
+							"type": "text"
+						},
+						{
+							"key": "tipoDocAfiliado",
+							"value": "CC",
+							"type": "text"
+						},
+						{
+							"key": "numDocAfiliado",
+							"value": "1122334455",
+							"type": "text"
+						},
+						{
+							"key": "ordenServicio",
+							"value": "OS003",
+							"type": "text"
+						},
+						{
+							"key": "medicoRegistro",
+							"value": "RM003",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "5432",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/agenda/agendar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agenda",
+						"agendar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fecha",
+									"value": "2024-10-10",
+									"type": "text"
+								},
+								{
+									"key": "hora",
+									"value": "14:30:00",
+									"type": "text"
+								},
+								{
+									"key": "ipsNit",
+									"value": "900.123.456-7",
+									"type": "text"
+								},
+								{
+									"key": "tipoDocAfiliado",
+									"value": "CC",
+									"type": "text"
+								},
+								{
+									"key": "numDocAfiliado",
+									"value": "1122334455",
+									"type": "text"
+								},
+								{
+									"key": "ordenServicio",
+									"value": "OS002",
+									"type": "text"
+								},
+								{
+									"key": "medicoRegistro",
+									"value": "RM002",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/agenda/agendar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"agendar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 04:06:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Servicio agendado exitosamente."
+				}
+			]
+		}
+	]
+}

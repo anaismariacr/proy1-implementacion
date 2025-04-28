@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "5a36a4d7-e208-4ed4-b9fb-7a204d456730",
+		"name": "RFC5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/41576067-5a36a4d7-e208-4ed4-b9fb-7a204d456730?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "Consultar agenda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agenda/disponibilidad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agenda",
+						"disponibilidad"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/agenda/disponibilidad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"agenda",
+								"disponibilidad"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 03:58:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    [\n        \"Examen de Laboratorio\",\n        \"2021-06-02T05:00:00.000+00:00\",\n        null,\n        \"Dra. Anais Castro\"\n    ],\n    [\n        \"Consulta General\",\n        \"2021-06-01T05:00:00.000+00:00\",\n        null,\n        \"Dr. Daniel Vergara\"\n    ],\n    [\n        \"Consulta Oftalmológica\",\n        \"2025-04-05T05:00:00.000+00:00\",\n        null,\n        \"Dr. Luis Méndez\"\n    ],\n    [\n        \"Terapia Física\",\n        \"2025-04-06T05:00:00.000+00:00\",\n        null,\n        \"Dra. Paula Silva\"\n    ],\n    [\n        \"Consulta Ginecológica\",\n        \"2025-04-08T05:00:00.000+00:00\",\n        null,\n        \"Dr. Jorge Díaz\"\n    ],\n    [\n        \"Consulta Urológica\",\n        \"2025-04-09T05:00:00.000+00:00\",\n        null,\n        \"Dra. Silvia Cano\"\n    ],\n    [\n        \"Consulta Neurológica\",\n        \"2025-04-10T05:00:00.000+00:00\",\n        null,\n        \"Dr. Andrés Lasso\"\n    ],\n    [\n        \"Consulta Psiquiátrica\",\n        \"2025-04-11T05:00:00.000+00:00\",\n        null,\n        \"Dra. Camila León\"\n    ],\n    [\n        \"Consulta Reumatológica\",\n        \"2025-04-12T05:00:00.000+00:00\",\n        null,\n        \"Dr. Mateo Duarte\"\n    ]\n]"
+				}
+			]
+		}
+	]
+}

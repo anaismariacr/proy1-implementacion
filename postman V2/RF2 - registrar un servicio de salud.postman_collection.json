@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "8f94379a-cb69-450a-b2a2-2bdb4ebfbd4d",
+		"name": "RF2 - registrar un servicio de salud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/42591330-8f94379a-cb69-450a-b2a2-2bdb4ebfbd4d?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "registrar servicio salud",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "nombrenombre",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "descripción",
+							"type": "text"
+						},
+						{
+							"key": "tipoServicio",
+							"value": "terapia",
+							"type": "text"
+						},
+						{
+							"key": "ipsOfrecida",
+							"value": "900.123.456-7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/serviciosSalud/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"serviciosSalud",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "registrar servicio salud",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Fotocuagulación",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "descripción",
+									"type": "text"
+								},
+								{
+									"key": "tipoServicio",
+									"value": "terapia",
+									"type": "text"
+								},
+								{
+									"key": "ipsOfrecida",
+									"value": "900.123.456-7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/serviciosSalud/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serviciosSalud",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 23:35:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "redirect:/serviciosSalud"
+				},
+				{
+					"name": "registrar servicio salud",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "nombrenombre",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "descripción",
+									"type": "text"
+								},
+								{
+									"key": "tipoServicio",
+									"value": "terapia",
+									"type": "text"
+								},
+								{
+									"key": "ipsOfrecida",
+									"value": "900.123.456-7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/serviciosSalud/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serviciosSalud",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 00:40:51 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "redirect:/serviciosSalud"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "e064b966-663a-4f0e-adff-3ddc469dcc26",
+		"name": "RF4 - registrar medico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/42591330-e064b966-663a-4f0e-adff-3ddc469dcc26?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "registrar medico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "registroMedico",
+							"value": "RM562"
+						},
+						{
+							"key": "especialidad",
+							"value": "Cardiología"
+						},
+						{
+							"key": "nitIps",
+							"value": "987654321"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/medicos/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"medicos",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "registrar medico",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "registroMedico",
+									"value": "RM562"
+								},
+								{
+									"key": "especialidad",
+									"value": "Cardiología"
+								},
+								{
+									"key": "nitIps",
+									"value": "987654321"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/medicos/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicos",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 00:52:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "redirect:/medicos"
+				},
+				{
+					"name": "registrar medico",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "registroMedico",
+									"value": "RM56"
+								},
+								{
+									"key": "especialidad",
+									"value": "Cardiología"
+								},
+								{
+									"key": "nitIps",
+									"value": "987654321"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/medicos/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"medicos",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 00:23:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "redirect:/medicos"
+				}
+			]
+		}
+	]
+}

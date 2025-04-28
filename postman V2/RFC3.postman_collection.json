@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "620e9a55-f268-42eb-8939-4d1601bb9699",
+		"name": "RFC3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/41576067-620e9a55-f268-42eb-8939-4d1601bb9699?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "indice servicios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/serviciosSalud/indiceUso",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"serviciosSalud",
+						"indiceUso"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

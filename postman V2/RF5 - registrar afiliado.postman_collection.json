@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "6fe031ff-ccc5-4584-9851-e8ac6fa5545b",
+		"name": "RF5 - registrar afiliado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/42591330-6fe031ff-ccc5-4584-9851-e8ac6fa5545b?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "registrar eps",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nit",
+							"value": "23423",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "afiliado prueba",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/epses/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"epses",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registrar afiliado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "numDoc",
+							"value": "42342",
+							"type": "text"
+						},
+						{
+							"key": "tipoDoc",
+							"value": "CC",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "Sofia",
+							"type": "text"
+						},
+						{
+							"key": "fechaNac",
+							"value": "1990-05-15",
+							"type": "text"
+						},
+						{
+							"key": "ciudad",
+							"value": "Barranquilla",
+							"type": "text"
+						},
+						{
+							"key": "direccion",
+							"value": "Calle 23 #67-98",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "3009586748",
+							"type": "text"
+						},
+						{
+							"key": "epsAsociada",
+							"value": "23423",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/afiliados/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"afiliados",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "registrar afiliado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "numDoc",
+									"value": "485769",
+									"type": "text"
+								},
+								{
+									"key": "tipoDoc",
+									"value": "CC",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "Sofia",
+									"type": "text"
+								},
+								{
+									"key": "fechaNac",
+									"value": "1990-05-15",
+									"type": "text"
+								},
+								{
+									"key": "ciudad",
+									"value": "Barranquilla",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "Calle 23 #67-98",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "3009586748",
+									"type": "text"
+								},
+								{
+									"key": "epsAsociada",
+									"value": "23423",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/afiliados/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"afiliados",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 23:37:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "redirect:/afiliados"
+				}
+			]
+		}
+	]
+}

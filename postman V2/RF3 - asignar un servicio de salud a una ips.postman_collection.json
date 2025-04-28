@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "bf73ebba-3faa-476f-a9b9-256793827048",
+		"name": "RF3 - asignar un servicio de salud a una ips",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/42591330-bf73ebba-3faa-476f-a9b9-256793827048?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "asignar servicio a ips",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "NOMBRESERVICIO",
+							"value": "Fotocuagulación",
+							"type": "text"
+						},
+						{
+							"key": "NITIPS",
+							"value": "987654321",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/serviciosIps/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"serviciosIps",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "NOMBRESERVICIO",
+									"value": "Fotocuagulación",
+									"type": "text"
+								},
+								{
+									"key": "NITIPS",
+									"value": "987654321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/serviciosIps/new/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serviciosIps",
+								"new",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "22"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Apr 2025 01:37:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "redirect:/serviciosIps"
+				}
+			]
+		}
+	]
+}

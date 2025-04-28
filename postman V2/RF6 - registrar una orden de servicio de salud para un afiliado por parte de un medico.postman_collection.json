@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "a9ab666e-237c-4d6d-87bd-d32669af1c9c",
+		"name": "RF6 - registrar una orden de servicio de salud para un afiliado por parte de un medico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/42591330-a9ab666e-237c-4d6d-87bd-d32669af1c9c?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "registrar orden de servicio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "numero",
+							"value": "098",
+							"type": "text"
+						},
+						{
+							"key": "fecha",
+							"value": "2025-11-20",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "vigente",
+							"type": "text"
+						},
+						{
+							"key": "numDocAfiliado",
+							"value": "485769",
+							"type": "text"
+						},
+						{
+							"key": "registroMedico",
+							"value": "RM002",
+							"type": "text"
+						},
+						{
+							"key": "nombreServicio",
+							"value": "Fotocuagulación",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordenes/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordenes",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

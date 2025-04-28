@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "66fec642-34f2-47d7-8e36-15ccbdd9ce28",
+		"name": "RFC6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/41576067-66fec642-34f2-47d7-8e36-15ccbdd9ce28?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "Consultar agenda read commited",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agenda/disponibilidadRC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agenda",
+						"disponibilidadRC"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "0aeb8e7c-d4a8-4780-b477-afcc2a5bf73b",
+		"name": "RF7 - agendar un servicio de salud por parte de un afiliado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42591330",
+		"_collection_link": "https://www.postman.com/tuoutfit/workspace/sistrans/collection/42591330-0aeb8e7c-d4a8-4780-b477-afcc2a5bf73b?action=share&source=collection_link&creator=42591330"
+	},
+	"item": [
+		{
+			"name": "registrar cita",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "70",
+							"type": "text"
+						},
+						{
+							"key": "fecha",
+							"value": "2025-12-14",
+							"type": "text"
+						},
+						{
+							"key": "hora",
+							"value": "14:20:00",
+							"type": "text"
+						},
+						{
+							"key": "ipsNit",
+							"value": "987654321",
+							"type": "text"
+						},
+						{
+							"key": "tipoDocAfiliado",
+							"value": "CC",
+							"type": "text"
+						},
+						{
+							"key": "numDocAfiliado",
+							"value": "485769",
+							"type": "text"
+						},
+						{
+							"key": "numOrden",
+							"value": "OS001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/citas/new/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"citas",
+						"new",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
