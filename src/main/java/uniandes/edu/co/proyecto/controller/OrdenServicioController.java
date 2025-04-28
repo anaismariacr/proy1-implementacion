@@ -60,5 +60,11 @@ public class OrdenServicioController {
         ordenRepo.eliminarOrden(numero);
         return  "redirect:/ordenes";
     }
+
+    @GetMapping("/ordenes/20masSolicitados")
+    public String findTop20() {
+        ordenRepo.findTop20ServiciosMasSolicitados();
+        return  "redirect:/ordenes";
+    }
     
 }

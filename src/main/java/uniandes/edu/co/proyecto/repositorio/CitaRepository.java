@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import uniandes.edu.co.proyecto.modelo.Cita;
 
 @Repository
-public interface CitaRepository extends JpaRepository<Cita, Integer> {
+public interface CitaRepository extends JpaRepository<Cita, String> {
 
     @Query(value = "SELECT * FROM CITAS", nativeQuery = true)
     Collection<Cita> darCitas();
@@ -105,7 +105,7 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
     @Transactional
     @Query(value = "UPDATE CITAS SET FECHA = :fecha, HORA = :hora, ATENDIDA_EN = :ipsNit, ORDENSERVICIO = :numOrden " +
                    "WHERE ID = :id", nativeQuery = true)
-    void actualizarCita(@Param("id") Integer id, 
+    void actualizarCita(@Param("id") String id, 
                         @Param("fecha") Date fecha, 
                         @Param("hora") Time hora, 
                         @Param("ipsNit") String ipsNit, 
@@ -114,5 +114,5 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM CITAS WHERE ID = :id", nativeQuery = true)
-    void eliminarCita(@Param("id") Integer id);
+    void eliminarCita(@Param("id") String id);
 }

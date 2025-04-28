@@ -1,7 +1,7 @@
 package uniandes.edu.co.proyecto.modelo;
 
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,7 +23,7 @@ public class Cita {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
-    private Integer id;
+    private String id;
 
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
@@ -31,7 +31,7 @@ public class Cita {
     private Date fecha;
 
     @Column(name = "HORA")
-    private String hora;
+    private Time hora;
 
     @ManyToOne
     @JoinColumn(name = "ATENDIDA_EN", referencedColumnName = "NIT")
@@ -48,7 +48,7 @@ public class Cita {
     @JoinColumn(name = "ORDENSERVICIO", referencedColumnName = "NUMERO")
     private OrdenServicio numOrden;
 
-    public Cita(Date fecha, String hora, Ips ipsNit, String tipoDocAfiliado, Afiliado numDocAfiliado, OrdenServicio numOrden) {
+    public Cita(Date fecha, Time hora, Ips ipsNit, String tipoDocAfiliado, Afiliado numDocAfiliado, OrdenServicio numOrden) {
         this.fecha = fecha;
         this.hora = hora;
         this.ipsNit = ipsNit;
@@ -61,11 +61,11 @@ public class Cita {
         // Default constructor
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -77,11 +77,11 @@ public class Cita {
         this.fecha = fecha;
     }
 
-    public String getHora() {
+    public Time getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Time hora) {
         this.hora = hora;
     }
 

@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.Optional;
 
@@ -60,18 +61,28 @@ public class CitaController {
     }
 
     @PostMapping("/citas/{ID}/edit/save")
-    public String citaEditarGuardar(@PathVariable("ID") int id, @ModelAttribute Cita cita) {
-        java.sql.Date sqlDate = new java.sql.Date(cita.getFecha().getTime());
-        Time hora = Time.valueOf(cita.getHora() + ":00");
+    public String citaEditarGuardar(@PathVariable("ID") String id, @ModelAttribute Cita cita) {
 
-        citaRepository.actualizarCita(id, sqlDate, hora, cita.getIpsNit().getNit(), cita.getNumOrden());
+        citaRepository.actualizarCita(id, cita.getFecha(), cita.getHora(), cita.getIpsNit().getNit(), cita.getNumOrden());
         
         return "redirect:/citas"; 
     }
 
     @GetMapping("/citas/{id}/delete")
-    public String citaEliminar(@PathVariable("id") int id) {
+    public String citaEliminar(@PathVariable("id") String id) {
         citaRepository.eliminarCita(id);
+        return "redirect:/citas";
+    }
+
+    @GetMapping("/citas/disponibilidad/{nombreServicio}")
+    public String findDisponibilidad(@PathVariable("nombreServicio") String id) {
+        citaRepository.findDisponibilidadServicioEnProximas4Semanas(id);
+        return "redirect:/citas";
+    }
+
+    @GetMapping("/citas/disponibilidad/{tipoDoc}/{numDoc}/{fechaInicio}/{fechaFin}")
+    public String serviciosXAfiliado(@PathVariable("numDoc") String tipoDoc, @PathVariable("tipoDoc") String numDoc, @PathVariable("fechaInicio") Date fechaInicio, @PathVariable("fechaFin") Date fechaFin) {
+        citaRepository.findServiciosUsadosPorAfiliadoEnRango(tipoDoc, numDoc, fechaInicio, fechaFin);
         return "redirect:/citas";
     }
     

@@ -63,5 +63,11 @@ public class ServicioSaludController {
         servicioSaludRepository.eliminarServicioSalud(nombre);;
         return "redirect:/serviciosSalud";
     }
+
+    @GetMapping("/serviciosSalud/indiceUso")
+    public String indiceUso() {
+        servicioSaludRepository.findIndiceUsoServicios();;
+        return "redirect:/serviciosSalud";
+    }
     
 }

@@ -31,7 +31,7 @@ public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, St
            "FROM OrdenServicio os " +
            "GROUP BY os.servicioNombre.nombre " +
            "ORDER BY total DESC")
-    List<Object[]> findTop20ServiciosMasSolicitados(Pageable pageable);
+    List<Object[]> findTop20ServiciosMasSolicitados();
 
     //figure out como importar el enum de estado
     @Modifying

@@ -22,7 +22,7 @@ public class AgendarServicio {
     @Autowired
     private CitaRepository citaRepo;
 
-    @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void agendarServicio(
             Date fecha,
             Time hora,
@@ -30,28 +30,27 @@ public class AgendarServicio {
             String ipsNit,
             String tipoDocAfiliado,
             String numDocAfiliado,
-            String ordenServicio) throws Exception {
-        try {
+            String ordenServicio) {
+        
             // Confirmar disponibilidad
-            long citasExistentes = citaRepo.contarDisponibilidad(fecha, hora, medicoRegistro);
+            /* 
+        long citasExistentes = citaRepo.contarDisponibilidad(fecha, hora, medicoRegistro);
 
             if (citasExistentes > 0) {
                 throw new Exception("El servicio ya fue agendado por otro usuario. Intenta con otro horario.");
             }
-
+*/
             // Insertar nueva cita
             citaRepo.agendarCita(fecha, hora, ipsNit, tipoDocAfiliado, numDocAfiliado, ordenServicio);
 
-        } catch (Exception e) {
-            throw new Exception("Error al agendar el servicio: " + e.getMessage());
-        }
+        
     }
 
     
     @Transactional
     public List<Object[]> consultarDispSerializable(String nombreServicio,String registroMedico,Date fechaInicio,Date fechaFin) throws Exception {
         try {
-            Thread.sleep(30000); // Sleep de 30 segundos
+            //Thread.sleep(30000); // Sleep de 30 segundos
             return citaRepo.findDisponibilidadAgenda(nombreServicio, registroMedico, fechaInicio, fechaFin);
         } catch (Exception e) {
             throw new Exception("Error al consultar la agenda: " + e.getMessage());
