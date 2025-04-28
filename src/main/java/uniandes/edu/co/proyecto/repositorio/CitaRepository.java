@@ -49,11 +49,11 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
     @Query(value = "SELECT s.NOMBRE, c.FECHA, c.HORA, mp.NOMBRE " +
     "FROM CITAS c " +
     "JOIN ORDENESSERVICIO os ON c.ORDENSERVICIO = os.NUMERO " +
-    "JOIN SERVICIOSSALUD s ON os.SERVICIOSALUD = s.NOMBRE " +
-    "JOIN MEDICOS m ON os.MEDICOREMITENTE = m.REGISTROMEDICO " +
-    "JOIN MEDICOPERSONAL mp ON m.REGISTROMEDICO = mp.REGISTROMEDICO " +
+    "JOIN SERVICIOSSALUD s ON os.SERVICIO_SALUD = s.NOMBRE " +
+    "JOIN MEDICOS m ON os.MEDICO_REMITENTE = m.REGISTRO_MEDICO " +
+    "JOIN MEDICOSPERSONAL mp ON m.REGISTRO_MEDICO = mp.REGISTRO_MEDICO " +
     "WHERE (:nombreServicio IS NULL OR s.NOMBRE = :nombreServicio) " +
-    "AND (:registroMedico IS NULL OR m.REGISTROMEDICO = :registroMedico) " +
+    "AND (:registroMedico IS NULL OR m.REGISTRO_MEDICO = :registroMedico) " +
     "AND (:fechaInicio IS NULL OR c.FECHA >= :fechaInicio) " +
     "AND (:fechaFin IS NULL OR c.FECHA <= :fechaFin)",
     nativeQuery = true)
@@ -80,8 +80,9 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
     //Agendar cita
     @Modifying
     @Query(value = "INSERT INTO CITAS (ID, FECHA, HORA, ATENDIDA_EN, TIPODOCAFILIADO, NUMDOCAFILIADO, ORDENSERVICIO) " +
-                   "VALUES (CITAS_SEQ.NEXTVAL, :fecha, :hora, :ipsNit, :tipoDocAfiliado, :numDocAfiliado, :ordenServicio)", nativeQuery = true)
+                   "VALUES (:id, :fecha, :hora, :ipsNit, :tipoDocAfiliado, :numDocAfiliado, :ordenServicio)", nativeQuery = true)
     void agendarCita(
+        @Param("id") String id,
         @Param("fecha") Date fecha,
         @Param("hora") Time hora,
         @Param("ipsNit") String ipsNit,

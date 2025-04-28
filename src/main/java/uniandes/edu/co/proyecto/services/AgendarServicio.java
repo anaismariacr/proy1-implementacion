@@ -22,15 +22,16 @@ public class AgendarServicio {
     @Autowired
     private CitaRepository citaRepo;
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
     public void agendarServicio(
+        String id,
             Date fecha,
             Time hora,
             String medicoRegistro,
             String ipsNit,
             String tipoDocAfiliado,
             String numDocAfiliado,
-            String ordenServicio) {
+            String ordenServicio) throws Exception {
         
             // Confirmar disponibilidad
             /* 
@@ -41,16 +42,16 @@ public class AgendarServicio {
             }
 */
             // Insertar nueva cita
-            citaRepo.agendarCita(fecha, hora, ipsNit, tipoDocAfiliado, numDocAfiliado, ordenServicio);
+            citaRepo.agendarCita(id,fecha, hora, ipsNit, tipoDocAfiliado, numDocAfiliado, ordenServicio);
 
         
     }
 
     
-    @Transactional
+    @Transactional(isolation = Isolation.SERIALIZABLE, rollbackFor = Exception.class)
     public List<Object[]> consultarDispSerializable(String nombreServicio,String registroMedico,Date fechaInicio,Date fechaFin) throws Exception {
         try {
-            //Thread.sleep(30000); // Sleep de 30 segundos
+            Thread.sleep(30000); // Sleep de 30 segundos
             return citaRepo.findDisponibilidadAgenda(nombreServicio, registroMedico, fechaInicio, fechaFin);
         } catch (Exception e) {
             throw new Exception("Error al consultar la agenda: " + e.getMessage());
@@ -58,8 +59,13 @@ public class AgendarServicio {
         
     }
 
-    @Transactional
-    public Boolean consultarDispReadCommited(){
-        return true;
+    @Transactional(isolation = Isolation.READ_COMMITTED, rollbackFor = Exception.class)
+    public List<Object[]> consultarDispReadCommited(String nombreServicio,String registroMedico,Date fechaInicio,Date fechaFin) throws Exception {
+        try {
+            Thread.sleep(30000); // Sleep de 30 segundos
+            return citaRepo.findDisponibilidadAgenda(nombreServicio, registroMedico, fechaInicio, fechaFin);
+        } catch (Exception e) {
+            throw new Exception("Error al consultar la agenda: " + e.getMessage());
+        }
     }
 }

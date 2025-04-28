@@ -30,6 +30,7 @@ public class AgendaController {
 
     @PostMapping("/agendar")
     public String agendar(
+            @RequestParam String id,
             @RequestParam Date fecha,
             @RequestParam Time hora,
             @RequestParam String medicoRegistro,
@@ -38,7 +39,7 @@ public class AgendaController {
             @RequestParam String numDocAfiliado,
             @RequestParam String ordenServicio) {
         try {
-            agendarServicio.agendarServicio(fecha, hora, medicoRegistro, ipsNit, tipoDocAfiliado, numDocAfiliado, ordenServicio);
+            agendarServicio.agendarServicio(id,fecha, hora, medicoRegistro, ipsNit, tipoDocAfiliado, numDocAfiliado, ordenServicio);
             return "Servicio agendado exitosamente.";
         } catch (Exception e) {
             return "Error al agendar servicio: " + e.getMessage();
