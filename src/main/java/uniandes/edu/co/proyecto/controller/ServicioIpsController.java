@@ -35,18 +35,11 @@ public class ServicioIpsController {
     }
 
     @PostMapping("/serviciosIps/new/save")
-    public String servicioIpsGuardar(@PathVariable("NOMBRESERVICIO") String nombre, @PathVariable("NITIPS") String nitips, Model model) {
-        ServicioIpsPK pk = new ServicioIpsPK();
-        pk.setNombreServicio(nombre);
-        pk.setNitIps(nitips);
-
-        ServicioIps servicioIps = new ServicioIps();
-        servicioIps.setPk(pk);
-
-        servicioIpsRepository.insertarServicioIps(nombre, nitips);
-    
-        return "redirect:/serviciosIps";
+    public String servicioIpsGuardar(@RequestParam("NOMBRESERVICIO") String nombreServicio, @RequestParam("NITIPS") String nitIps) {
+        servicioIpsRepository.insertarServicioIps(nombreServicio, nitIps);
+    return "redirect:/serviciosIps";
     }
+
 
 
 
