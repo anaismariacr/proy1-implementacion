@@ -109,8 +109,8 @@ public class Cita {
         this.numDocAfiliado = numDocAfiliado;
     }
 
-    public OrdenServicio getNumOrden() {
-        return numOrden;
+    public String getNumOrden() {
+        return numOrden.getNumero();
     }
 
     public void setNumOrden(OrdenServicio numOrden) {

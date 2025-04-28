@@ -42,7 +42,7 @@ public class CitaController {
         hora, 
         cita.getIpsNit().getNit(), 
         cita.getNumDocAfiliado().getNumDoc(),
-        cita.getNumOrden().getNumero()
+        cita.getNumOrden()
     );
     
     return "redirect:/citas";
@@ -64,7 +64,7 @@ public class CitaController {
         java.sql.Date sqlDate = new java.sql.Date(cita.getFecha().getTime());
         Time hora = Time.valueOf(cita.getHora() + ":00");
 
-        citaRepository.actualizarCita(id, sqlDate, hora, cita.getIpsNit().getNit(), cita.getNumOrden().getNumero());
+        citaRepository.actualizarCita(id, sqlDate, hora, cita.getIpsNit().getNit(), cita.getNumOrden());
         
         return "redirect:/citas"; 
     }

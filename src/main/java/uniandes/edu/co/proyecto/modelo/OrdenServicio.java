@@ -32,7 +32,7 @@ public class OrdenServicio {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordenServicioSeq")
     @Id
     @Column(name = "NUMERO")
-    private Integer numero;
+    private String numero;
 
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
@@ -74,11 +74,11 @@ public class OrdenServicio {
     public OrdenServicio()
     {;}
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

@@ -18,7 +18,7 @@ import uniandes.edu.co.proyecto.modelo.Medico;
 import uniandes.edu.co.proyecto.modelo.ServicioSalud;
 
 @Repository
-public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, Integer>{
+public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, String>{
 
     @Query(value = "SELECT * FROM ORDENESSERVICIO", nativeQuery = true)
     Collection<OrdenServicio> darOrdenes();
@@ -33,7 +33,7 @@ public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, In
            "ORDER BY total DESC")
     List<Object[]> findTop20ServiciosMasSolicitados(Pageable pageable);
 
-    //figure out como importar el enum de estado 
+    //figure out como importar el enum de estado
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO ORDENESSERVICIO (NUMERO, FECHA, ESTADO, AFILIADO_RECEPTOR_NUM, MEDICO_REMITENTE, SERVICIO_SALUD) VALUES (proyecto_sequence.nextval, :fecha, :estado, :numAfiliadoReceptor, :medicoRemitente, :servicioNombre)", nativeQuery = true)
@@ -43,7 +43,7 @@ public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, In
     @Transactional
     @Query(value = "UPDATE ORDENESSERVICIO SET FECHA = :fecha, ESTADO = :estado, AFILIADO_RECEPTOR_NUM = :numAfiliadoReceptor, MEDICO_REMITENTE = :medicoRemitente, SERVICIO_SALUD = :servicioNombre WHERE NUMERO = :numero", nativeQuery = true)
     void actualizarOrden(@Param("numero") Integer numero, @Param("fecha") Date fecha, @Param("estado") String estado, @Param("numAfiliadoReceptor") Integer numAfiliadoReceptor, @Param("medicoRemitente") String medicoRemitente, @Param("servicioNombre") String servicioNombre);
-  
+
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM ORDENESSERVICIO WHERE NUMERO = :numero", nativeQuery = true)

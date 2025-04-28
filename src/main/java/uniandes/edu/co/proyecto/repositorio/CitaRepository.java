@@ -46,21 +46,49 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
     @Param("fin") Date fin);
 
 // RFC 5 PROBAR
-@Query("SELECT s.nombre, c.fecha, c.hora, mp.nombre " +
-           "FROM Cita c " +
-           "JOIN c.numOrden os " +
-           "JOIN os.servicioSalud s " +
-           "JOIN os.medico m " +
-           "JOIN MedicosPersonal mp ON m.registroMedico = mp.registroMedico " +
-           "WHERE (:nombreServicio IS NULL OR s.nombre = :nombreServicio) " +
-           "AND (:registroMedico IS NULL OR m.registroMedico = :registroMedico) " +
-           "AND (:fechaInicio IS NULL OR c.fecha >= :fechaInicio) " +
-           "AND (:fechaFin IS NULL OR c.fecha <= :fechaFin)")
+    @Query(value = "SELECT s.NOMBRE, c.FECHA, c.HORA, mp.NOMBRE " +
+    "FROM CITAS c " +
+    "JOIN ORDENESSERVICIO os ON c.ORDENSERVICIO = os.NUMERO " +
+    "JOIN SERVICIOSSALUD s ON os.SERVICIOSALUD = s.NOMBRE " +
+    "JOIN MEDICOS m ON os.MEDICOREMITENTE = m.REGISTROMEDICO " +
+    "JOIN MEDICOPERSONAL mp ON m.REGISTROMEDICO = mp.REGISTROMEDICO " +
+    "WHERE (:nombreServicio IS NULL OR s.NOMBRE = :nombreServicio) " +
+    "AND (:registroMedico IS NULL OR m.REGISTROMEDICO = :registroMedico) " +
+    "AND (:fechaInicio IS NULL OR c.FECHA >= :fechaInicio) " +
+    "AND (:fechaFin IS NULL OR c.FECHA <= :fechaFin)",
+    nativeQuery = true)
     List<Object[]> findDisponibilidadAgenda(
-            @Param("nombreServicio") String nombreServicio,
-            @Param("registroMedico") String registroMedico,
-            @Param("fechaInicio") Date fechaInicio,
-            @Param("fechaFin") Date fechaFin);
+    @Param("nombreServicio") String nombreServicio,
+    @Param("registroMedico") String registroMedico,
+    @Param("fechaInicio") Date fechaInicio,
+    @Param("fechaFin") Date fechaFin);  
+
+    // RF9 ayuda
+    @Query(value = "SELECT COUNT(*) " +
+                   "FROM CITAS c " +
+                   "JOIN ORDENESSERVICIO os ON c.ORDENSERVICIO = os.NUMERO " +
+                   "JOIN MEDICOS m ON os.MEDICOREMITENTE = m.REGISTROMEDICO " +
+                   "WHERE c.FECHA = :fecha " +
+                   "AND c.HORA = :hora " +
+                   "AND m.REGISTROMEDICO = :medicoRegistro", nativeQuery = true)
+    long contarDisponibilidad(
+        @Param("fecha") Date fecha,
+        @Param("hora") Time hora,
+        @Param("medicoRegistro") String medicoRegistro
+    );
+
+    //Agendar cita
+    @Modifying
+    @Query(value = "INSERT INTO CITAS (ID, FECHA, HORA, ATENDIDA_EN, TIPODOCAFILIADO, NUMDOCAFILIADO, ORDENSERVICIO) " +
+                   "VALUES (CITAS_SEQ.NEXTVAL, :fecha, :hora, :ipsNit, :tipoDocAfiliado, :numDocAfiliado, :ordenServicio)", nativeQuery = true)
+    void agendarCita(
+        @Param("fecha") Date fecha,
+        @Param("hora") Time hora,
+        @Param("ipsNit") String ipsNit,
+        @Param("tipoDocAfiliado") String tipoDocAfiliado,
+        @Param("numDocAfiliado") String numDocAfiliado,
+        @Param("ordenServicio") String ordenServicio
+    );
 
 
     @Modifying
@@ -71,7 +99,7 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
                       @Param("hora") Time hora, 
                       @Param("ipsNit") String ipsNit,  
                       @Param("numDocAfiliado") Integer numDocAfiliado, 
-                      @Param("numOrden") Integer numOrden);
+                      @Param("numOrden") String numOrden);
 
     @Modifying
     @Transactional
@@ -81,7 +109,7 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
                         @Param("fecha") Date fecha, 
                         @Param("hora") Time hora, 
                         @Param("ipsNit") String ipsNit, 
-                        @Param("numOrden") Integer numOrden);
+                        @Param("numOrden") String numOrden);
 
     @Modifying
     @Transactional
