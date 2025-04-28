@@ -45,6 +45,23 @@ List<Cita> findServiciosUsadosPorAfiliadoEnRango(
     @Param("inicio") Date inicio,
     @Param("fin") Date fin);
 
+// RFC 5 PROBAR
+@Query("SELECT s.nombre, c.fecha, c.hora, mp.nombre " +
+           "FROM Cita c " +
+           "JOIN c.numOrden os " +
+           "JOIN os.servicioSalud s " +
+           "JOIN os.medico m " +
+           "JOIN MedicosPersonal mp ON m.registroMedico = mp.registroMedico " +
+           "WHERE (:nombreServicio IS NULL OR s.nombre = :nombreServicio) " +
+           "AND (:registroMedico IS NULL OR m.registroMedico = :registroMedico) " +
+           "AND (:fechaInicio IS NULL OR c.fecha >= :fechaInicio) " +
+           "AND (:fechaFin IS NULL OR c.fecha <= :fechaFin)")
+    List<Object[]> findDisponibilidadAgenda(
+            @Param("nombreServicio") String nombreServicio,
+            @Param("registroMedico") String registroMedico,
+            @Param("fechaInicio") Date fechaInicio,
+            @Param("fechaFin") Date fechaFin);
+
 
     @Modifying
     @Transactional

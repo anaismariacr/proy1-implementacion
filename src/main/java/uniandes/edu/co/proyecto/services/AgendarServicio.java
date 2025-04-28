@@ -1,5 +1,8 @@
 package uniandes.edu.co.proyecto.services;
 
+import java.sql.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import jakarta.transaction.Transactional;
@@ -22,8 +25,14 @@ public class AgendarServicio {
     }
 
     @Transactional
-    public Boolean consultarDispSerializable(){
-        return true;
+    public List<Object[]> consultarDispSerializable(String nombreServicio,String registroMedico,Date fechaInicio,Date fechaFin) throws Exception {
+        try {
+            Thread.sleep(30000); // Sleep de 30 segundos
+            return citaRepo.findDisponibilidadAgenda(nombreServicio, registroMedico, fechaInicio, fechaFin);
+        } catch (Exception e) {
+            throw new Exception("Error al consultar la agenda: " + e.getMessage());
+        }
+        
     }
 
     @Transactional
