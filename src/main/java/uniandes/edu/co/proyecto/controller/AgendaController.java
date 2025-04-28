@@ -28,6 +28,15 @@ public class AgendaController {
         return agendarServicio.consultarDispSerializable(nombreServicio, registroMedico, fechaInicio, fechaFin);
     }
 
+    @GetMapping("/disponibilidadRC")
+    public List<Object[]> consultarDisponibilidadRC(
+            @RequestParam(required = false) String nombreServicio,
+            @RequestParam(required = false) String registroMedico,
+            @RequestParam(required = false) Date fechaInicio,
+            @RequestParam(required = false) Date fechaFin) throws Exception {
+        return agendarServicio.consultarDispReadCommited(nombreServicio, registroMedico, fechaInicio, fechaFin);
+    }
+
     @PostMapping("/agendar")
     public String agendar(
             @RequestParam String id,
